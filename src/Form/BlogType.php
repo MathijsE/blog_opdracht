@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Blog;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,9 @@ class BlogType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('body')
+            ->add('body', CKEditorType::class, [
+                'config' => array('toolbar' => 'full'),
+            ])
             ->add('created')
             ->add('last_updated')
             ->add('user')
