@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ blog.id }}</td>
                 <td>{{ blog.title }}</td>
-                <td>{{ blog.body }}</td>
+                <td>{{ blog.body|raw }}</td>
                 <td>{{ blog.created ? blog.created|date('Y-m-d') : '' }}</td>
                 <td>{{ blog.lastUpdated ? blog.lastUpdated|date('Y-m-d') : '' }}</td>
                 <td>

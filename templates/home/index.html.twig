@@ -3,16 +3,23 @@
 {% block title %}Blog opdracht{% endblock %}
 
 {% block body %}
+    <a href="{{ path('blog_new') }}">Create new</a>
     {% if blogs > 1 %}
         <div class="row">
             {% for blog in blogs %}
                 <div class="col-4">
-                    Title: {{ blog.title }} <br>
-                    Body: {{ blog.body }} <br>
-                    Door: {{ blog.user }} <br>
-                    {% if app.user %}
-                        <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a> <br>
-                    {% endif %}
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src={{ vich_uploader_asset(blog, 'imageFile') }}>
+                        <div class="card-body">
+                            <p class="card-text">Title: {{ blog.title }}</p>
+                            <p class="card-text">Body: {{ blog.body|raw }} </p>
+                            <p class="card-text">Door: {{ blog.user }}</p>
+                            <a href="{{ path('blog_show', {'id': blog.id}) }}">show</a>
+                            {% if app.user %}
+                                <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a>
+                            {% endif %}
+                        </div>
+                    </div>
                 </div>
             {% endfor %}
         </div>

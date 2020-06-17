@@ -31,6 +31,7 @@ class BlogController extends AbstractController
     public function new(Request $request): Response
     {
         $blog = new Blog();
+        $blog->setCreated(new\DateTime('now'));
         $form = $this->createForm(BlogType::class, $blog);
         $form->handleRequest($request);
 
