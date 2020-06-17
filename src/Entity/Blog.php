@@ -115,6 +115,11 @@ class Blog
      */
     private $user;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $frontpage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -176,6 +181,18 @@ class Blog
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getFrontpage(): ?bool
+    {
+        return $this->frontpage;
+    }
+
+    public function setFrontpage(?bool $frontpage): self
+    {
+        $this->frontpage = $frontpage;
 
         return $this;
     }

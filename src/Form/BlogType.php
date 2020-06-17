@@ -18,6 +18,7 @@ class BlogType extends AbstractType
             ->add('body', CKEditorType::class, [
                 'config' => array('toolbar' => 'full'),
             ])
+            ->add('frontpage')
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
                 'label_format' => "Image",

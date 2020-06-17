@@ -64,6 +64,7 @@ class BlogController extends AbstractController
      */
     public function edit(Request $request, Blog $blog): Response
     {
+        $blog->setLastUpdated(new\DateTime('now'));
         $form = $this->createForm(BlogType::class, $blog);
         $form->handleRequest($request);
 
