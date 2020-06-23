@@ -15,6 +15,7 @@
                                 <p class="card-text">Title: {{ blog.title }}</p>
                                 <p class="card-text">Body: {{ blog.body|raw }} </p>
                                 <p class="card-text">Door: {{ blog.user }}</p>
+                                <p class="card-text">Gemaakt op: {{ blog.created ? blog.created|date('Y-m-d') : '' }}</p>
                                 <a href="{{ path('blog_show', {'id': blog.id}) }}">show</a>
                                 {% if app.user %}
                                     <a href="{{ path('blog_edit', {'id': blog.id}) }}">edit</a>
